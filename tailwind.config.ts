@@ -1,6 +1,8 @@
 import type { Config } from 'tailwindcss';
+import typography from '@tailwindcss/typography';
 
 const config: Config = {
+  darkMode: 'class',
   content: [
     './pages/**/*.{js,ts,jsx,tsx,mdx}',
     './components/**/*.{js,ts,jsx,tsx,mdx}',
@@ -9,6 +11,7 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        fg: 'rgb(var(--fg) / <alpha-value>)',
         blood: {
           50: '#fef2f2',
           100: '#fee2e2',
@@ -24,13 +27,13 @@ const config: Config = {
           glow: '#ff1744',
         },
         void: {
-          950: '#0a0a0a',
-          900: '#0d0d0d',
-          800: '#121212',
-          700: '#1a1a1a',
-          600: '#222222',
-          500: '#2a2a2a',
-          DEFAULT: '#0a0a0a',
+          950: 'rgb(var(--void-950) / <alpha-value>)',
+          900: 'rgb(var(--void-900) / <alpha-value>)',
+          800: 'rgb(var(--void-800) / <alpha-value>)',
+          700: 'rgb(var(--void-700) / <alpha-value>)',
+          600: 'rgb(var(--void-600) / <alpha-value>)',
+          500: 'rgb(var(--void-500) / <alpha-value>)',
+          DEFAULT: 'rgb(var(--void-950) / <alpha-value>)',
         },
       },
       fontFamily: {
@@ -70,7 +73,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 
 export default config;

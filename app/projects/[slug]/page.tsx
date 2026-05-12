@@ -19,37 +19,38 @@ export default function ProjectPage({ params }: Props) {
   const { detail } = project;
 
   return (
-    <div className="min-h-screen bg-void text-white">
-      {/* Back link */}
-      <div className="border-b border-void-600 bg-void-900/50 sticky top-0 z-20 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto px-6 py-4">
-          <Link
-            href="/#projects"
-            className="inline-flex items-center gap-2 text-sm font-medium text-white/70 hover:text-blood transition-colors"
-          >
-            <span aria-hidden>←</span>
-            Back to projects
-          </Link>
+    <div className="min-h-screen bg-void text-fg">
+      <div className="pt-[4.5rem]">
+        {/* Back link — below fixed navbar */}
+        <div className="border-b border-void-600 bg-void-900/50 sticky top-[4.5rem] z-[90] backdrop-blur-sm">
+          <div className="max-w-4xl mx-auto px-6 py-3">
+            <Link
+              href="/#projects"
+              className="inline-flex items-center gap-2 text-sm font-medium text-fg/70 hover:text-blood transition-colors"
+            >
+              <span aria-hidden>←</span>
+              Back to projects
+            </Link>
+          </div>
         </div>
-      </div>
 
-      <article className="max-w-4xl mx-auto px-6 py-12 md:py-16">
+        <article className="max-w-4xl mx-auto px-6 py-12 md:py-16">
         {/* Header */}
         <header className="mb-10 md:mb-14">
           <div className="flex flex-wrap gap-2 mb-4">
             {project.tags.map((tag) => (
               <span
                 key={tag}
-                className="px-3 py-1 text-xs font-medium bg-void-600 text-white/80 rounded border border-void-500"
+                className="px-3 py-1 text-xs font-medium bg-void-600 text-fg/80 rounded border border-void-500"
               >
                 {tag}
               </span>
             ))}
           </div>
-          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-4">
+          <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-fg tracking-tight mb-4">
             {project.title}
           </h1>
-          <p className="text-lg text-white/70 max-w-2xl">
+          <p className="text-lg text-fg/70 max-w-2xl">
             {project.shortDescription}
           </p>
         </header>
@@ -66,7 +67,7 @@ export default function ProjectPage({ params }: Props) {
 
         {/* Overview */}
         <div className="prose prose-invert max-w-none mb-12">
-          <p className="text-white/85 text-lg leading-relaxed">
+          <p className="text-fg/85 text-lg leading-relaxed">
             {detail.overview}
           </p>
         </div>
@@ -77,11 +78,11 @@ export default function ProjectPage({ params }: Props) {
             {detail.sections.map((section, i) => (
               <section key={i}>
                 {section.heading && (
-                  <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3 text-blood">
+                  <h2 className="font-display text-xl md:text-2xl font-bold text-fg mb-3 text-blood">
                     {section.heading}
                   </h2>
                 )}
-                <p className="text-white/75 leading-relaxed">
+                <p className="text-fg/75 leading-relaxed">
                   {section.body}
                 </p>
               </section>
@@ -92,7 +93,7 @@ export default function ProjectPage({ params }: Props) {
         {/* Image gallery */}
         {detail.images && detail.images.length > 0 && (
           <div className="mb-12 md:mb-16">
-            <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-6">
+            <h2 className="font-display text-xl md:text-2xl font-bold text-fg mb-6">
               Gallery
             </h2>
             <div className="grid gap-6 md:gap-8">
@@ -125,7 +126,8 @@ export default function ProjectPage({ params }: Props) {
             </a>
           </div>
         )}
-      </article>
+        </article>
+      </div>
     </div>
   );
 }

@@ -4,6 +4,7 @@ import './globals.css';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedBackground from '@/components/AnimatedBackground';
+import ThemeProvider from '@/components/ThemeProvider';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -33,12 +34,14 @@ export default function RootLayout({
       className={`${syne.variable} ${outfit.variable} noise-overlay`}
     >
       <body className="min-h-screen bg-void font-body relative">
-        <AnimatedBackground />
-        <div className="relative z-10">
-          <Navbar />
-          <main>{children}</main>
-          <Footer />
-        </div>
+        <ThemeProvider>
+          <AnimatedBackground />
+          <div className="relative z-10">
+            <Navbar />
+            <main>{children}</main>
+            <Footer />
+          </div>
+        </ThemeProvider>
       </body>
     </html>
   );

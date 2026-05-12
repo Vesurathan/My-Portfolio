@@ -28,7 +28,7 @@ export default function Skills() {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-blood font-display text-2xl font-bold">02</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-fg">
             Skills
           </h2>
           <div className="h-px flex-1 bg-gradient-to-r from-blood/50 to-transparent max-w-[200px]" />
@@ -56,7 +56,7 @@ export default function Skills() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: groupIndex * 0.1 + i * 0.03 }}
-                    className="text-white/80 hover:text-white transition-colors"
+                    className="text-fg/80 hover:text-fg transition-colors"
                   >
                     {skill}
                   </motion.li>

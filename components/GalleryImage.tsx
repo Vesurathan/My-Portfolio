@@ -15,7 +15,7 @@ export default function GalleryImage({ src, alt, className = '' }: Props) {
   if (error) {
     return (
       <div
-        className={`flex items-center justify-center bg-void-700 border border-void-600 text-white/30 font-display text-sm ${className}`}
+        className={`flex items-center justify-center bg-void-700 border border-void-600 text-fg/30 font-display text-sm ${className}`}
       >
         Image
       </div>

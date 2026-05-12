@@ -17,7 +17,7 @@ export default function Footer() {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
-            className="text-sm text-white/60"
+            className="text-sm text-fg/60"
           >
             © {new Date().getFullYear()} Ashura Corps
           </motion.p>
@@ -32,7 +32,7 @@ export default function Footer() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 * i }}
-                className="text-sm text-white/70 hover:text-blood transition-colors"
+                className="text-sm text-fg/70 hover:text-blood transition-colors"
               >
                 {link.label}
               </motion.a>

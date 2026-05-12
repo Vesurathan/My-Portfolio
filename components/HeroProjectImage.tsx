@@ -16,7 +16,7 @@ export default function HeroProjectImage({ src, alt, title, className = '' }: Pr
   if (error) {
     return (
       <div
-        className={`flex items-center justify-center bg-void-700 text-white/20 font-display text-2xl tracking-widest ${className}`}
+        className={`flex items-center justify-center bg-void-700 text-fg/20 font-display text-2xl tracking-widest ${className}`}
       >
         {title}
       </div>

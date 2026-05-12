@@ -13,7 +13,7 @@ export default function Contact() {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-blood font-display text-2xl font-bold">05</span>
-          <h2 className="font-display text-4xl md:text-5xl font-bold text-white">
+          <h2 className="font-display text-4xl md:text-5xl font-bold text-fg">
             Contact
           </h2>
           <div className="h-px flex-1 bg-gradient-to-r from-blood/50 to-transparent max-w-[200px]" />
@@ -25,7 +25,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="max-w-2xl"
         >
-          <p className="text-white/80 text-lg mb-10">
+          <p className="text-fg/80 text-lg mb-10">
             Have a project in mind or want to collaborate? Drop a line.
           </p>
           <a

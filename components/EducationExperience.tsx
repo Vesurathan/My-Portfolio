@@ -84,16 +84,16 @@ function TreeRow({
           >
             {type === 'education' ? 'Education' : 'Experience'}
           </span>
-          <span className="text-white/30">·</span>
-          <span className="text-[11px] font-medium text-white/50 tracking-wide">
+          <span className="text-fg/30">·</span>
+          <span className="text-[11px] font-medium text-fg/50 tracking-wide">
             {period}
           </span>
         </div>
-        <h3 className="font-display text-base md:text-lg font-bold text-white leading-tight mb-1">
+        <h3 className="font-display text-base md:text-lg font-bold text-fg leading-tight mb-1">
           {title}
         </h3>
-        <p className="text-sm text-white/45 font-medium mb-2">{org}</p>
-        <p className="text-sm text-white/65 leading-relaxed">
+        <p className="text-sm text-fg/45 font-medium mb-2">{org}</p>
+        <p className="text-sm text-fg/65 leading-relaxed">
           {description}
         </p>
       </div>
@@ -225,7 +225,7 @@ export default function EducationExperience() {
             <span className="text-blood font-display text-2xl md:text-3xl font-bold tabular-nums">
               04
             </span>
-            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-white tracking-tight">
+            <h2 className="font-display text-3xl md:text-4xl lg:text-[2.5rem] font-bold text-fg tracking-tight">
               Education & Experience
             </h2>
           </div>
@@ -251,11 +251,11 @@ export default function EducationExperience() {
 
           {/* Legend */}
           <div className="flex items-center justify-center gap-6 mt-8 pt-6 border-t border-void-600/60">
-            <span className="flex items-center gap-2 text-xs font-medium text-white/50 tracking-wide">
+            <span className="flex items-center gap-2 text-xs font-medium text-fg/50 tracking-wide">
               <span className="w-2 h-2 rounded-full bg-blood/80" />
               Education
             </span>
-            <span className="flex items-center gap-2 text-xs font-medium text-white/50 tracking-wide">
+            <span className="flex items-center gap-2 text-xs font-medium text-fg/50 tracking-wide">
               <span className="w-2 h-2 rounded-full bg-blood-glow/80" />
               Experience
             </span>

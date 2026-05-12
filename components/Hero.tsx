@@ -25,7 +25,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white mb-6"
+          className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-fg mb-6"
         >
           <span className="block">Data.</span>
           <span className="gradient-text">Models.</span>
@@ -35,7 +35,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.25 }}
-          className="text-lg sm:text-xl text-white/70 max-w-2xl mx-auto mb-10"
+          className="text-lg sm:text-xl text-fg/70 max-w-2xl mx-auto mb-10"
         >
           Building intelligent systems—from pipelines and analytics to ML models and computer vision.
         </motion.p>
@@ -53,7 +53,7 @@ export default function Hero() {
           </a>
           <a
             href="#contact"
-            className="px-8 py-4 border border-white/20 text-white font-semibold rounded-sm hover:border-blood hover:text-blood transition-colors"
+            className="px-8 py-4 border border-white/20 text-fg font-semibold rounded-sm hover:border-blood hover:text-blood transition-colors"
           >
             Get in Touch
           </a>
@@ -66,7 +66,7 @@ export default function Hero() {
         transition={{ delay: 1 }}
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
       >
-        <a href="#about" className="block text-white/50 hover:text-blood transition-colors" aria-label="Scroll to about">
+        <a href="#about" className="block text-fg/50 hover:text-blood transition-colors" aria-label="Scroll to about">
           <svg className="w-8 h-8 animate-bounce" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
           </svg>
