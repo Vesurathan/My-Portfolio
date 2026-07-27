@@ -5,6 +5,8 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AnimatedBackground from '@/components/AnimatedBackground';
 import ThemeProvider from '@/components/ThemeProvider';
+import ScrollProgress from '@/components/fx/ScrollProgress';
+import CustomCursor from '@/components/fx/CustomCursor';
 
 const syne = Syne({
   subsets: ['latin'],
@@ -31,10 +33,13 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      suppressHydrationWarning
       className={`${syne.variable} ${outfit.variable} noise-overlay`}
     >
       <body className="min-h-screen bg-void font-body relative">
         <ThemeProvider>
+          <ScrollProgress />
+          <CustomCursor />
           <AnimatedBackground />
           <div className="relative z-10">
             <Navbar />

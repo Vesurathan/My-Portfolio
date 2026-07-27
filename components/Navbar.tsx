@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from 'next-themes';
+import ScrambleText from '@/components/fx/ScrambleText';
 
 /** Hash links must be root-relative so they work from /ml/, /projects/*, etc. */
 const NAV_LINKS = [
@@ -42,9 +43,12 @@ export default function Navbar() {
       <nav className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between min-h-[4.5rem]">
         <Link
           href="/#hero"
-          className="font-display text-xl font-bold tracking-tight text-fg hover:text-blood transition-colors"
+          data-cursor
+          className={`font-display text-xl font-bold tracking-tight hover:text-blood transition-colors ${
+            scrolled ? 'text-fg' : 'text-white'
+          }`}
         >
-          ASHURA
+          <ScrambleText text="ASHURA" />
         </Link>
 
         <ul className="hidden md:flex items-center gap-8">
@@ -57,7 +61,10 @@ export default function Navbar() {
               >
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-fg/80 hover:text-blood glow-line py-2"
+                  data-cursor
+                  className={`text-sm font-medium hover:text-blood glow-line py-2 transition-colors ${
+                    scrolled ? 'text-fg/80' : 'text-white/80'
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -70,7 +77,9 @@ export default function Navbar() {
           <button
             type="button"
             aria-label="Toggle theme"
-            className="p-2 rounded-md border border-void-600 bg-void-900/40 text-fg/80 hover:text-blood hover:border-blood/30 transition-colors"
+            className={`p-2 rounded-md border border-void-600 bg-void-900/40 hover:text-blood hover:border-blood/30 transition-colors ${
+              scrolled ? 'text-fg/80' : 'text-white/80'
+            }`}
             onClick={() => {
               if (!mounted) return;
               setTheme(theme === 'light' ? 'dark' : 'light');
@@ -102,7 +111,7 @@ export default function Navbar() {
         <button
           type="button"
           aria-label="Toggle menu"
-          className="md:hidden p-2 text-fg/90 hover:text-blood"
+          className={`md:hidden p-2 hover:text-blood ${scrolled ? 'text-fg/90' : 'text-white/90'}`}
           onClick={() => setMobileOpen((o) => !o)}
         >
           <svg

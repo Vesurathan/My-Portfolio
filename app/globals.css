@@ -90,6 +90,60 @@ body {
   color: #fff;
 }
 
+/* Custom cursor (desktop, motion-allowed only — toggled by CustomCursor.tsx) */
+body.cursor-none,
+body.cursor-none a,
+body.cursor-none button,
+body.cursor-none [data-cursor] {
+  cursor: none;
+}
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border: 1.5px solid var(--blood-glow);
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 200;
+  opacity: 0;
+  mix-blend-mode: difference;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease, opacity 0.3s ease;
+  will-change: transform;
+}
+.cursor-ring.cursor-big {
+  width: 62px;
+  height: 62px;
+  background: rgba(196, 30, 58, 0.25);
+}
+
+/* Infinite marquee (Skills / Footer) */
+@keyframes marquee-scroll {
+  to {
+    transform: translateX(-50%);
+  }
+}
+.marquee-track {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee-scroll 24s linear infinite;
+  will-change: transform;
+}
+.marquee-mask:hover .marquee-track {
+  animation-play-state: paused;
+}
+.marquee-mask {
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-track {
+    animation: none;
+  }
+}
+
 /* Subtle grid background */
 .bg-grid {
   background-image: linear-gradient(to right, rgba(196, 30, 58, 0.04) 1px, transparent 1px),
