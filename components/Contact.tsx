@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import FlowField from '@/components/fx/FlowField';
 import Magnetic from '@/components/fx/Magnetic';
+import SocialLinks from '@/components/SocialLinks';
 
 export default function Contact() {
   return (
@@ -67,6 +68,11 @@ export default function Contact() {
               <span className="text-white/80">→</span>
             </a>
           </Magnetic>
+
+          <div className="mt-8 flex items-center gap-4 flex-wrap">
+            <span className="text-white/40 text-sm">or find me on</span>
+            <SocialLinks light />
+          </div>
         </div>
       </div>
     </section>

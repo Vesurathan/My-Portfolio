@@ -2,49 +2,52 @@
 
 import { motion } from 'framer-motion';
 
-const EDUCATION = [
-  {
-    period: '2020 – 2024',
-    title: 'B.Tech / M.Tech in Computer Science',
-    org: 'University Name',
-    description: 'Focus on AI, machine learning, and data systems.',
-  },
-  {
-    period: '2018 – 2020',
-    title: 'Higher Secondary',
-    org: 'School Name',
-    description: 'Science stream with emphasis on mathematics.',
-  },
-];
-
-const EXPERIENCE = [
-  {
-    period: '2023 – Present',
-    title: 'Data / ML Intern or Role',
-    org: 'Company or Lab',
-    description: 'Building pipelines and models for production.',
-  },
-  {
-    period: '2022 – 2023',
-    title: 'Research or Project Assistant',
-    org: 'Institution',
-    description: 'Work on computer vision and big data projects.',
-  },
-];
-
 type NodeType = 'education' | 'experience';
 
-const TREE_NODES: Array<
+/** Newest first — the tree alternates education (left) / experience (right). */
+const TREE_NODES: Array<{
+  type: NodeType;
+  period: string;
+  title: string;
+  org: string;
+  description: string;
+}> = [
   {
-    type: NodeType;
-    period: string;
-    title: string;
-    org: string;
-    description: string;
-  }
-> = [
-  ...EDUCATION.map((e) => ({ ...e, type: 'education' as const })),
-  ...EXPERIENCE.map((e) => ({ ...e, type: 'experience' as const })),
+    type: 'education',
+    period: '2025 – Present',
+    title: 'MSc Artificial Intelligence',
+    org: 'University of East London, UK',
+    description:
+      'Specialising in AI — deep learning, computer vision, and agentic systems. Dissertation on deep-learning plant-disease detection with a retrieval-grounded treatment advisor.',
+  },
+  {
+    type: 'experience',
+    period: '2022 – 2025',
+    title: 'Software Engineer',
+    org: 'Apptimus Tech',
+    description: 'Designed, built, and shipped production software end to end across the stack.',
+  },
+  {
+    type: 'education',
+    period: '2020 – 2024',
+    title: 'BICT (Hons), Information & Communication Technology',
+    org: 'University of Sri Jayewardenepura · Faculty of Technology',
+    description: 'Bachelor of ICT — software engineering, data, and systems foundations.',
+  },
+  {
+    type: 'experience',
+    period: '2018 – 2020',
+    title: 'Administration & Management',
+    org: 'Techna Technical Institute, Jaffna',
+    description: 'Ran administration and management — operations, coordination, and day-to-day running.',
+  },
+  {
+    type: 'education',
+    period: '2018 – 2020',
+    title: 'GCE Advanced Level',
+    org: 'Jaffna Central College',
+    description: 'Advanced Level studies.',
+  },
 ];
 
 function TreeRow({

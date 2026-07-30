@@ -1,6 +1,7 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
+import Image from 'next/image';
 import { motion, useReducedMotion } from 'framer-motion';
 
 // NOTE: grounded in known context — please correct any specifics (name, degree,
@@ -54,6 +55,7 @@ const BRACKETS = [
 function Portrait() {
   const ref = useRef<HTMLDivElement | null>(null);
   const reduce = useReducedMotion();
+  const [imgError, setImgError] = useState(false);
 
   function move(e: React.MouseEvent<HTMLDivElement>) {
     const el = ref.current;
@@ -88,8 +90,23 @@ function Portrait() {
         className="relative aspect-[4/5] bg-void-700 border border-void-600 rounded-sm overflow-hidden flex items-center justify-center [transform-style:preserve-3d] transition-transform duration-300 ease-out will-change-transform"
         style={{ transform: 'rotateX(var(--rx,0)) rotateY(var(--ry,0))' }}
       >
-        <div className="absolute inset-0 bg-gradient-to-br from-blood/20 to-transparent" />
-        <span className="relative font-display text-7xl font-bold tracking-widest text-fg/25 select-none">V</span>
+        {imgError ? (
+          <span className="relative font-display text-7xl font-bold tracking-widest text-fg/25 select-none">V</span>
+        ) : (
+          <Image
+            src="/portrait.jpg"
+            alt="Vesurathan"
+            fill
+            sizes="(max-width: 768px) 100vw, 40vw"
+            unoptimized
+            priority
+            onError={() => setImgError(true)}
+            className="object-cover object-top"
+          />
+        )}
+        {/* tint + depth over the photo */}
+        <div className="absolute inset-0 bg-gradient-to-br from-blood/15 to-transparent mix-blend-multiply" />
+        <div className="absolute inset-0 bg-gradient-to-t from-void/50 via-transparent to-transparent" />
 
         {/* scan line */}
         {!reduce && (
