@@ -32,94 +32,76 @@ export const CATEGORY_META: Record<ProjectCategory, { label: string; badge: stri
   company: { label: 'Company', badge: 'bg-blood/10 border-blood/30 text-blood/90' },
 };
 
+// NOTE: descriptions + tech tags below are drafts inferred from the titles —
+// edit freely. Images live at /projects/<slug>.jpg (upload into public/projects/).
 export const projects: Project[] = [
+  // ── Research ─────────────────────────────────────────────
   {
-    slug: 'plant-disease-advisor',
-    title: 'Agentic Plant-Disease Advisor',
+    slug: 'agentic-breast-cancer',
+    title: 'Agentic Breast Cancer Detection System',
     category: 'research',
     shortDescription:
-      'Deep-learning leaf-disease detection paired with a retrieval-grounded, confidence-gated treatment advisor. (MSc dissertation.)',
+      'An agentic system that detects breast cancer from medical imaging and reasons over its findings, pairing deep-learning classification with LLM-driven analysis.',
+    tags: ['Deep Learning', 'Medical Imaging', 'LLM Agents'],
+    image: '/projects/agentic-breast-cancer.jpg',
+    detail: {
+      overview:
+        'A research project combining deep-learning classification of breast-cancer imaging with an agent that reasons over the findings and grounds its output in retrieved evidence.',
+    },
+  },
+  {
+    slug: 'agentic-plant-disease',
+    title: 'Agentic Plant Disease Prediction System',
+    category: 'research',
+    shortDescription:
+      'Deep-learning plant-disease prediction with an agentic, retrieval-grounded advisor that recommends confidence-gated treatments. (MSc dissertation.)',
     tags: ['PyTorch', 'Computer Vision', 'RAG', 'LLM Agents'],
-    image: '/projects/plant-disease.jpg',
-    links: [{ label: 'Read', href: '#', type: 'paper' }],
+    image: '/projects/agentic-plant-disease.jpg',
     detail: {
       overview:
-        'A research project that goes beyond classification: it detects plant diseases from leaf images, then reasons about what to do next — recommending confidence-gated treatments grounded in retrieved evidence.',
-      sections: [
-        { heading: 'Problem', body: 'A prediction alone is not actionable. Growers need to know what a diagnosis means and what to do — safely, and only when the model is confident.' },
-        { heading: 'Approach', body: 'A CNN/ViT classifier feeds an agent that retrieves treatment guidance and gates its advice on prediction confidence, refusing to over-commit on uncertain cases.' },
-      ],
-      images: ['/projects/plant-disease.jpg'],
-      link: { label: 'Read the write-up', href: '#' },
+        'Goes beyond classification: detects plant diseases from leaf images, then reasons about what to do next — recommending confidence-gated treatments grounded in retrieved evidence.',
     },
   },
   {
-    slug: 'computer-vision-detection',
-    title: 'Real-Time Object Detection',
-    category: 'app',
-    shortDescription: 'Real-time object detection and classification for video streams using a YOLO model, OpenCV, and ONNX.',
-    tags: ['PyTorch', 'YOLO', 'OpenCV', 'ONNX'],
-    image: '/projects/computer-vision.jpg',
-    links: [
-      { label: 'Demo', href: '#', type: 'demo' },
-      { label: 'Code', href: '#', type: 'code' },
-    ],
+    slug: 'parcel-delivery-ml',
+    title: 'Enhancing Parcel Delivery Reliability Using Machine Learning',
+    category: 'research',
+    shortDescription:
+      'Machine-learning models that forecast delivery delays and improve the reliability of last-mile parcel logistics.',
+    tags: ['Machine Learning', 'Prediction', 'Logistics'],
+    image: '/projects/parcel-delivery-ml.jpg',
     detail: {
       overview:
-        'A real-time object detection system for video streams and images. Uses a YOLO-based model trained on custom datasets, with OpenCV for preprocessing and inference optimization.',
-      sections: [
-        { heading: 'Model & training', body: 'Fine-tuned a YOLO architecture on domain-specific data with augmentation, anchor tuning, and validation on held-out video sequences.' },
-        { heading: 'Deployment', body: 'Exported to ONNX for fast inference and integrated with OpenCV; runs in real time on GPU with optional TensorRT optimization for edge devices.' },
-      ],
-      images: ['/projects/computer-vision.jpg', '/projects/computer-vision-2.jpg'],
-      link: { label: 'Demo', href: '#' },
+        'A study applying machine learning to predict and reduce parcel-delivery failures — modelling the factors behind delays and optimising for reliability.',
     },
   },
+
+  // ── Websites ─────────────────────────────────────────────
   {
-    slug: 'ml-pipeline',
-    title: 'ML Pipeline & Model Serving',
-    category: 'app',
-    shortDescription: 'End-to-end pipeline for training, evaluation, and deployment of ML models with experiment tracking.',
-    tags: ['Python', 'PyTorch', 'MLflow', 'Docker'],
-    image: '/projects/ml-pipeline.jpg',
-    links: [{ label: 'Code', href: '#', type: 'code' }],
-    detail: {
-      overview:
-        'A production-ready ML pipeline that handles training, evaluation, versioning, and deployment — built for reproducibility and scale with experiment tracking and a model registry.',
-      sections: [
-        { heading: 'Solution', body: 'PyTorch for training, MLflow for tracking and registry, and containerized serving with Docker. Supports automated retraining and A/B deployment.' },
-        { heading: 'Outcome', body: 'Reduced time from experiment to production and improved reproducibility, with every run logged for comparison and rollback.' },
-      ],
-      images: ['/projects/ml-pipeline.jpg'],
-      link: { label: 'View on GitHub', href: '#' },
-    },
+    slug: 'morleys-website',
+    title: 'Morleys — Public Website',
+    category: 'web',
+    shortDescription: 'Public-facing website for Morleys, delivering brand presence and customer information.',
+    tags: ['Web', 'Frontend'],
+    image: '/projects/morleys-website.jpg',
+    detail: { overview: 'The public-facing website for Morleys — brand, information, and customer-facing pages.' },
   },
   {
-    slug: 'big-data-analytics',
-    title: 'Big Data Analytics Pipeline',
-    category: 'app',
-    shortDescription: 'Distributed ETL and analytics on large-scale datasets using Spark and cloud storage.',
-    tags: ['Spark', 'PySpark', 'ETL', 'Airflow'],
-    image: '/projects/big-data.jpg',
-    links: [{ label: 'Case study', href: '#', type: 'paper' }],
-    detail: {
-      overview:
-        'A distributed data pipeline that ingests, transforms, and serves analytics on large-scale datasets, built with Apache Spark and deployed on cloud storage and compute.',
-      sections: [
-        { heading: 'Scope', body: 'Processes large volumes of event data. PySpark transformations, partitioned storage layers, and aggregated metrics exposed for dashboards and APIs.' },
-        { heading: 'Tech stack', body: 'Spark for batch and micro-batch jobs, S3-compatible storage for raw and curated layers, and Airflow for orchestration; all jobs idempotent and incremental.' },
-      ],
-      images: ['/projects/big-data.jpg'],
-      link: { label: 'Case study', href: '#' },
-    },
+    slug: 'techna-website',
+    title: 'Techna — Public Website',
+    category: 'web',
+    shortDescription: 'Public website for Techna Technical Institute — programmes, information, and enrolment.',
+    tags: ['Web', 'Frontend'],
+    image: '/projects/techna-website.jpg',
+    detail: { overview: 'The public website for Techna Technical Institute, presenting programmes and information.' },
   },
   {
     slug: 'ashura-portfolio',
-    title: 'ASHURA — Portfolio',
+    title: 'My Portfolio — ASHURA',
     category: 'web',
-    shortDescription: 'This site. A dark, motion-rich portfolio built with Next.js, framer-motion, and WebGL shaders.',
+    shortDescription: 'This site — a dark, motion-rich portfolio built with Next.js, framer-motion, and WebGL shaders.',
     tags: ['Next.js', 'TypeScript', 'Tailwind', 'WebGL'],
-    image: '/projects/portfolio.jpg',
+    image: '/projects/ashura-portfolio.jpg',
     links: [
       { label: 'Live', href: '/', type: 'live' },
       { label: 'Code', href: 'https://github.com/vesurathan', type: 'code' },
@@ -127,28 +109,146 @@ export const projects: Project[] = [
     detail: {
       overview:
         'A personal portfolio with a bold blood/void identity — a WebGL plasma hero, per-section signature animations, a custom cursor, and interactive mini-games.',
-      sections: [
-        { heading: 'Build', body: 'Next.js App Router with a static export, framer-motion for orchestration, canvas/WebGL for the generative backgrounds, and a fully theme-aware light/dark system.' },
-      ],
-      images: ['/projects/portfolio.jpg'],
-      link: { label: 'Visit site', href: '/' },
     },
   },
   {
-    slug: 'apptimus-systems',
-    title: 'Apptimus Tech — Production Systems',
+    slug: 'ashurahub-website',
+    title: 'AshuraHub — Public Website',
+    category: 'web',
+    shortDescription: 'The public storefront and landing site for AshuraHub.',
+    tags: ['Web', 'E-commerce'],
+    image: '/projects/ashurahub-website.jpg',
+    detail: { overview: 'The public-facing storefront and landing experience for AshuraHub.' },
+  },
+  {
+    slug: 'doc2-api',
+    title: 'Doc2 API',
+    category: 'web',
+    shortDescription: 'A document-processing API for converting and extracting structured data from documents.',
+    tags: ['API', 'Backend', 'Documents'],
+    image: '/projects/doc2-api.jpg',
+    detail: { overview: 'An API service for processing documents — conversion and structured data extraction.' },
+  },
+  {
+    slug: 'dbforger-website',
+    title: 'DB Forger — Website',
+    category: 'web',
+    shortDescription: 'Landing site for DB Forger, the database tooling product.',
+    tags: ['Web', 'Landing'],
+    image: '/projects/dbforger-website.jpg',
+    detail: { overview: 'The marketing and landing website for the DB Forger product.' },
+  },
+  {
+    slug: 'dinoverse',
+    title: 'Dinoverse',
+    category: 'web',
+    shortDescription: 'An interactive, themed web experience — Dinoverse.',
+    tags: ['Web', 'Interactive'],
+    image: '/projects/dinoverse.jpg',
+    detail: { overview: 'A themed, interactive web experience.' },
+  },
+
+  // ── Applications ─────────────────────────────────────────
+  {
+    slug: 'eldercare',
+    title: 'ElderCare',
+    category: 'app',
+    shortDescription: 'An application supporting elderly care — monitoring, assistance, and caregiver coordination.',
+    tags: ['App', 'Healthcare'],
+    image: '/projects/eldercare.jpg',
+    detail: { overview: 'An application built to support elderly care — monitoring, assistance, and coordination for caregivers.' },
+  },
+  {
+    slug: 'morleys-pos',
+    title: 'Morleys POS',
+    category: 'app',
+    shortDescription: 'Point-of-sale application for Morleys — checkout, sales, and inventory.',
+    tags: ['App', 'POS', 'Retail'],
+    image: '/projects/morleys-pos.jpg',
+    detail: { overview: 'A point-of-sale system for Morleys — handling checkout, sales, and inventory.' },
+  },
+  {
+    slug: 'research-mentor',
+    title: 'Research Mentor',
+    category: 'app',
+    shortDescription: 'An AI-assisted research mentoring app offering guidance, resources, and progress tracking.',
+    tags: ['App', 'AI', 'Education'],
+    image: '/projects/research-mentor.jpg',
+    detail: { overview: 'An AI-assisted application that mentors researchers — guidance, resources, and progress tracking.' },
+  },
+  {
+    slug: 'dbforger-app',
+    title: 'DBForger',
+    category: 'app',
+    shortDescription: 'A database tooling application for schema and data generation and management.',
+    tags: ['App', 'Database', 'Tooling'],
+    image: '/projects/dbforger-app.jpg',
+    detail: { overview: 'A developer tool for database work — schema and data generation and management.' },
+  },
+  {
+    slug: 'ashurahub-seller',
+    title: 'AshuraHub — Seller Platform',
+    category: 'app',
+    shortDescription: 'The seller-side platform for AshuraHub — listings, orders, and store management.',
+    tags: ['App', 'E-commerce', 'Dashboard'],
+    image: '/projects/ashurahub-seller.jpg',
+    detail: { overview: 'The seller-facing side of AshuraHub — managing listings, orders, and stores.' },
+  },
+  {
+    slug: 'techna-admin',
+    title: 'Techna — Admin Portal',
+    category: 'app',
+    shortDescription: 'Administration portal for Techna — managing students, courses, and operations.',
+    tags: ['App', 'Admin', 'Dashboard'],
+    image: '/projects/techna-admin.jpg',
+    detail: { overview: 'An administration portal for Techna Technical Institute — students, courses, and operations.' },
+  },
+
+  // ── Company ──────────────────────────────────────────────
+  {
+    slug: 'apptimus-erp',
+    title: 'Apptimus ERP',
     category: 'company',
-    shortDescription: 'Full-stack features and services shipped as a Software Engineer for company products (2022–2025).',
-    tags: ['Full-stack', 'APIs', 'Databases', 'Delivery'],
-    image: '/projects/apptimus.jpg',
-    detail: {
-      overview:
-        'Work delivered as a Software Engineer at Apptimus Tech — designing, building, and shipping production software end to end across the stack.',
-      sections: [
-        { heading: 'Scope', body: 'Feature development, API and database work, and delivery of production systems for company products and clients.' },
-      ],
-      images: [],
-    },
+    shortDescription: 'An enterprise resource planning system built at Apptimus Tech, spanning core business operations.',
+    tags: ['ERP', 'Full-stack', 'Enterprise'],
+    image: '/projects/apptimus-erp.jpg',
+    detail: { overview: 'An enterprise resource planning platform delivered at Apptimus Tech, covering core operations.' },
+  },
+  {
+    slug: 'elderpa',
+    title: 'Elderpa',
+    category: 'company',
+    shortDescription: 'A digital eldercare product supporting seniors and their caregivers.',
+    tags: ['Product', 'Healthcare'],
+    image: '/projects/elderpa.jpg',
+    detail: { overview: 'A company product in the eldercare space, supporting seniors and caregivers.' },
+  },
+  {
+    slug: 'empower-wheelchair',
+    title: 'Empower — Airport Wheelchair Assistance',
+    category: 'company',
+    shortDescription: 'A system for managing and dispatching airport wheelchair-assistance requests.',
+    tags: ['Product', 'Operations', 'Airport'],
+    image: '/projects/empower-wheelchair.jpg',
+    detail: { overview: 'A platform coordinating airport wheelchair-assistance — request intake, dispatch, and tracking.' },
+  },
+  {
+    slug: 'placements-lk',
+    title: 'placements.lk',
+    category: 'company',
+    shortDescription: 'A jobs platform connecting employers and job-seekers — placements and hiring.',
+    tags: ['Platform', 'Jobs', 'Matching'],
+    image: '/projects/placements-lk.jpg',
+    detail: { overview: 'A job platform where work finds people and people find work — placements and hiring.' },
+  },
+  {
+    slug: 'joboro',
+    title: 'Joboro — AI Job ATS',
+    category: 'company',
+    shortDescription: 'An AI-powered applicant tracking system (ATS) for smarter job matching and recruitment.',
+    tags: ['AI', 'ATS', 'Recruitment'],
+    image: '/projects/joboro.jpg',
+    detail: { overview: 'An AI-driven applicant tracking system that streamlines matching, screening, and hiring.' },
   },
 ];
 
